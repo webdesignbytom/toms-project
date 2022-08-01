@@ -1,24 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom'
+import Home from './Home'
+import Top10 from './Top10'
+import Random from './Random'
+import Add from './Add'
+import Menu from './Components/Menu'
+import Total from './Components/Total'
+
 
 function App() {
+  const [items, setItems] = useState([])
+
+  useEffect(()=>{
+    fetch(`http://localhost:4000/items`)
+      .then((response) => {
+        console.log('response', response)
+        return(
+          response.json()
+        )
+      })
+      .then((data) => {
+        console.log('return data', data)
+        setItems(data)
+      })
+  }, [items])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Menu />
+      <Routes>
+        <Route path='/' element={<Home />}/>
+        <Route path='/random' element={<Random />}/>
+        <Route path='/top10' element={<Top10 />}/>
+        <Route path='/add' element={<Add />}/>
+      </Routes>
+    </>
   );
 }
 

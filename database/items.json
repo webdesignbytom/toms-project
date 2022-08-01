@@ -1,0 +1,18 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "itemName": "Sweets",
+      "itemImage": "http://cdn.shopify.com/s/files/1/0379/2289/8060/products/Wall-of-sweets-e1535647968627_1200x1200.jpg?v=1587046481",
+      "itemCost": "1.99",
+      "itemScore": "0"
+    },
+    {
+      "id": 2,
+      "itemName": "Bike",
+      "itemImage": "Bike",
+      "itemCost": "1000",
+      "itemScore": "0"
+    }
+  ]
+}
